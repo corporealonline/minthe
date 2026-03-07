@@ -4277,7 +4277,7 @@
             <span id="incrementor-aggregate-counter"></span>
             <script>
                 // Only load on production domain
-                if (window.location.hostname.contains('//minthe')) {
+                if (window.location.hostname === 'minthe.online' || window.location.hostname === 'mintheonline.com') {
                     const script = document.createElement('script');
                     script.src = 'https://incrementor.ali.moeeny.com/embed.js';
                     script.setAttribute('data-key', 'minthe');
