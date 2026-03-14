@@ -1,4 +1,3 @@
 User-agent: *
-Disallow:
 
 Sitemap: https://mintheonline.com/sitemap.xml
