@@ -13,6 +13,10 @@
             <h2>Minthe Online</h2>
             <h3>Escape the Wired.</h3>
         </div>
+        <nav class="page-nav">
+            <a href="index.html" class="nav-btn active">Events</a>
+            <a href="about.html" class="nav-btn">About</a>
+        </nav>
         <table id="events-table">
             <thead>
                 <tr>
@@ -6170,42 +6174,31 @@
         // Add click event to all table rows in tbody
         document.querySelectorAll('#events-table tbody tr').forEach(row => {
             row.addEventListener('click', function() {
-                // Check if there's already an expanded row for this row
+                // (unchanged — your existing click handler)
                 const existingExpanded = this.nextElementSibling;
                 if (existingExpanded && existingExpanded.classList.contains('expanded-row')) {
-                    // Remove the expanded row if it exists
                     existingExpanded.remove();
                 } else {
-                    // Get image and link from data attributes
                     const image = this.dataset.image;
                     const link = this.dataset.link;
-                    
-                    // Create content for left and right sides
                     let leftContent = '';
                     let rightContent = '';
-                    
                     if (image && image !== 'None') {
                         leftContent = `<img src="${image}" alt="No Image Found" class="expanded-image">`;
                     } else {
                         leftContent = '<div class="no-image">No Image Available</div>';
                     }
-                    
                     if (link && link !== 'None') {
                         rightContent = `<a href="${link}" target="_blank" class="expanded-link-btn">View Event</a>`;
                     } else {
                         rightContent = '<div class="no-link">No Link Available</div>';
                     }
-                    
-                    // Create new expanded row
                     const expandedRow = document.createElement('tr');
                     expandedRow.className = 'expanded-row';
-                    
-                    // Store the link on the row for click handling
                     if (link && link !== 'None') {
                         expandedRow.dataset.link = link;
                         expandedRow.style.cursor = 'pointer';
                     }
-                    
                     expandedRow.innerHTML = `
                         <td colspan="3" class="expanded-cell">
                             <div class="expanded-content">
@@ -6214,18 +6207,13 @@
                             </div>
                         </td>
                     `;
-                    
-                    // Add click event to the expanded row
                     expandedRow.addEventListener('click', function(e) {
-                        // Prevent clicks on the actual button from double-triggering
                         if (!e.target.classList.contains('expanded-link-btn')) {
                             if (this.dataset.link) {
                                 window.open(this.dataset.link, '_blank');
                             }
                         }
                     });
-                    
-                    // Insert the expanded row after the clicked row
                     this.parentNode.insertBefore(expandedRow, this.nextSibling);
                 }
             });
