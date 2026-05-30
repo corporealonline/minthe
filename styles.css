@@ -508,3 +508,29 @@ h3 {
 .map-popup-link {
     margin-top: 6px;
 }
+
+.locate-btn {
+    width: 34px;
+    height: 34px;
+    background: white;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.locate-btn:hover {
+    background: #f4f4f4;
+}
+
+.user-location-marker {
+    background-color: #4285f4;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #4285f4, 0 2px 6px rgba(0, 0, 0, 0.3);
+}
